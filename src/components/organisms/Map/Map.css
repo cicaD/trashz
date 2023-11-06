@@ -1,0 +1,35 @@
+.map-container {
+display: flex;
+    align-items: center;
+    gap: 1rem;
+
+    position: fixed;
+    top: var(--navbar-height);
+    bottom: var(--bottom-nav-height);
+    width: 100vw;
+
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    padding: 1rem 1rem 2rem 1rem;
+    background-color: var(--main-content-body-background);
+
+}
+.mapReloadConainer {
+    display: flex;
+    height: 100vw;
+    width: 100vw;
+
+}
+
+.custom-button {
+    position: absolute;
+    bottom: 3%;
+    left: 3%;
+    background-color: #0074d9;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    z-index: 1000;
+    /* Ensure the button is displayed above the map */
+}

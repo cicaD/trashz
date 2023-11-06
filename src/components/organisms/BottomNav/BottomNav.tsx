@@ -27,19 +27,20 @@ const BottomNav = () => {
                             navigate(Route.HOME)
                             break
                         case 1:
-                            navigate(Route.FAVORITES)
+                            navigate(Route.LOCATION)
                             break
                         case 2:
+                            navigate(Route.FAVORITES)
+                            break
+                        case 3:
                             navigate(Route.ACCOUNT)
                             break
                     }
                 }}
             >
                 <BottomNavigationAction label="Home" icon={<HomeIcon />} />
-                <BottomNavigationAction
-                    label="Favorites"
-                    icon={<FavoriteIcon />}
-                />
+                <BottomNavigationAction label="Location" icon={<PersonIcon />} />
+                <BottomNavigationAction label="Favorites" icon={<FavoriteIcon />}/>
                 <BottomNavigationAction label="Account" icon={<PersonIcon />} />
             </BottomNavigation>
         </Box>
