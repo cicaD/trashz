@@ -48,15 +48,13 @@ const Map = () => {
     };
 
     return (
-        <MapContainer center={mapCenter} zoom={13} style={{ height: '90vh', width: '100%' }}>
+        <MapContainer key={mapCenter.toString()} center={mapCenter} zoom={13} style={{ height: '90vh', width: '100%' }}>
             <TileLayer
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                 attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
             />
             <CustomButton className="custom-button" onClick={getCurrentLocation} text="Pick my location" />
             <MarkerHandler visible={markerPosition} position={markerPosition} />
-
-
         </MapContainer>
 
     );
