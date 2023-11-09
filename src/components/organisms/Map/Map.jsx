@@ -4,9 +4,23 @@ import { MapContainer, TileLayer, Marker, Popup, useMapEvents } from 'react-leaf
 import CustomButton from './CustomButton';
 import "./Map.css"
 import "leaflet/dist/leaflet.css"
+import L from 'leaflet';
+
 const Map = () => {
     const [mapCenter, setMapCenter] = useState([47.46863, 19.15359]);
     const [markerPosition, setMarkerPosition] = useState(null);
+    const pin = 'https://unpkg.com/leaflet@1.7.1/dist/images/marker-icon.png';
+    const pinMB = L.icon({
+        iconUrl: pin,
+        iconSize: [24, 41],
+        iconAnchor: [0, 44],
+        popupAnchor: [12, -40],
+        shadowUrl: null,
+        shadowSize: null,
+        shadowAnchor: null
+    });
+
+
 
     useEffect(() => {
         //  getCurrentLocation();
@@ -23,7 +37,7 @@ const Map = () => {
         })
 
         return visible && (
-            <Marker position={position}>
+            <Marker position={position} icon={pinMB}>
                 <Popup> <div> Position: {position.lat}  {position.lng}</div>  </Popup>
             </Marker>
         )
