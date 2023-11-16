@@ -5,51 +5,15 @@ import CustomButton from './CustomButton';
 import "./Map.css"
 import "leaflet/dist/leaflet.css"
 import L from 'leaflet';
-import goldMarkerIcon from '../../../assets/images/marker-icon-gold.png';
-import blueMarkerIcon from '../../../assets/images/marker-icon-blue.png';
-import redMarkerIcon from '../../../assets/images/marker-icon-red.png';
+// import goldMarkerIcon from '../../../assets/images/marker-icon-gold.png';
+import MarkerWithPopupN from '../../molecules/MarkerWithPopupN';
+
 
 
 const Map = () => {
     const [mapCenter, setMapCenter] = useState([47.46863, 19.15359]);
     const [markerPosition, setMarkerPosition] = useState(null);
-    const paris18 = 'https://images.unsplash.com/photo-1589805054722-c407021fa8ef?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1050&q=80';
-    const pin = 'https://unpkg.com/leaflet@1.7.1/dist/images/marker-icon.png';
-    const picuresURL = "https://picsum.photos/id/";
-
-
-    const getMarkerIcon = (color) => {
-        //  const markerIcon = color + 'MarkerIcon';
-        const markerIcon = require('../../../assets/images/marker-icon-' + color + '.png');
-        return L.icon({
-            iconUrl: markerIcon,
-            iconSize: [24, 41],
-            iconAnchor: [0, 44],
-            popupAnchor: [12, -40],
-            shadowUrl: null,
-            shadowSize: null,
-            shadowAnchor: null
-        });
-
-
-    }
-
-    const pinMB = L.icon({
-        //iconUrl: require('../assets/images/marker-icon-' + "red" + '.png'),
-        //   iconUrl: pin,
-        iconUrl: goldMarkerIcon,
-        iconSize: [24, 41],
-        iconAnchor: [0, 44],
-        popupAnchor: [12, -40],
-        shadowUrl: null,
-        shadowSize: null,
-        shadowAnchor: null
-    });
-
-    //  https://fastly.picsum.photos/id/0/5000/3333.jpg
-    //  https://picsum.photos/id/3/200/300
-
-    const previewMarkers = [
+    const previewMarkersData = [
         {
             lang: "47.50677284554991",
             long: "19.118614196777347",
@@ -67,39 +31,11 @@ const Map = () => {
         },
     ];
 
-    const previewMarkersEmpty = [
-    ];
 
     useEffect(() => {
         //  getCurrentLocation();
     }, []);
 
-
-    function MarkerWithPopup({ position, visible, markerIconColor }) {
-
-        const markerIcon = getMarkerIcon(markerIconColor);
-        const map = useMapEvents({
-            click(e) {
-                // map.locate();
-                setMarkerPosition(e.latlng);
-                console.log('Marker location' + e.latlng);
-            },
-        })
-
-        return visible && (
-            <Marker position={position} icon={markerIcon}>
-                <Popup>
-                    <p className="popup">Position: {position.lat}  {position.lng}</p>
-                    <img className="popup_img" width="80px" height="80px" src={picuresURL + previewMarkers[0].images[0] + '/200/300'} alt={picuresURL + previewMarkers[0].images[0] + '/200/300'} />
-                    <img className="popup_img" width="80px" height="80px" src={picuresURL + previewMarkers[0].images[1] + '/200/300'} alt="Sacré-Coeur" />
-                    <img className="popup_img" width="80px" height="80px" src={picuresURL + previewMarkers[0].images[2] + '/200/300'} alt="Sacré-Coeur" />
-                    <img className="popup_img" width="80px" height="80px" src={picuresURL + previewMarkers[0].images[0] + '/200/300'} alt="Sacré-Coeur" />
-                    <img className="popup_img" width="80px" height="80px" src={picuresURL + previewMarkers[0].images[0] + '/200/300'} alt="Sacré-Coeur" />
-
-                </Popup>
-            </Marker>
-        )
-    }
 
     const getCurrentLocation = () => {
         if ('geolocation' in navigator) {
@@ -125,13 +61,9 @@ const Map = () => {
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
             />
             <CustomButton className="custom-button" onTouchStart={getCurrentLocation} onClick={getCurrentLocation} text="Pick my location" />
-            <MarkerWithPopup visible={previewMarkers[0]} position={[previewMarkers[0].lang, previewMarkers[0].long]} markerIconColor="red" />
-            <MarkerWithPopup visible={previewMarkers[1]} position={[previewMarkers[1].lang, previewMarkers[1].long]} markerIconColor="red" />
-            <MarkerWithPopup visible={previewMarkers[2]} position={[previewMarkers[2].lang, previewMarkers[2].long]} markerIconColor="red" />
-
-            <MarkerWithPopup visible={previewMarkersEmpty[1]} position={[previewMarkers[1].lang, previewMarkers[1].long]} markerIconColor="red" />
-            <MarkerWithPopup visible={markerPosition} position={markerPosition} markerIconColor="blue" />
-
+            <MarkerWithPopupN visible={previewMarkersData[0]} position={[previewMarkersData[0].lang, previewMarkersData[0].long]} markerIconColor="red" markerPositionCallBack={() => ""} />
+            <MarkerWithPopupN visible={previewMarkersData[1]} position={[previewMarkersData[1].lang, previewMarkersData[1].long]} markerIconColor="red" markerPositionCallBack={() => ""} />
+            <MarkerWithPopupN visible={markerPosition} position={markerPosition} markerIconColor="blue" markerPositionCallBack={setMarkerPosition} />
         </MapContainer>
 
     );
