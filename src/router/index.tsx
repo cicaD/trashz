@@ -4,12 +4,16 @@ import App from '../App'
 import Home from '../views/Home/Home'
 import NotFound from '../views/NotFound/NotFound'
 import Location from '../views/Location/Location'
+import DescriptionPage from '../views/Description/DescriptionPage'
 
 enum Route {
     ROOT = '/',
     HOME = '/home',
     FAVORITES = '/favorites',
     LOCATION = '/location',
+    IMAGES = '/images',
+    DESCRIPTION = '/description',
+    RECIPIENT = '/recipient',
     ACCOUNT = '/account',
     NOTFOUND = '*',
 }
@@ -21,6 +25,18 @@ const publicRoutes = [
     },
     {
         path: Route.LOCATION,
+        element: <Location />,
+    },
+    {
+        path: Route.IMAGES,
+        element: <Location />,
+    },
+    {
+        path: Route.DESCRIPTION,
+        element: <DescriptionPage />,
+    },
+    {
+        path: Route.RECIPIENT,
         element: <Location />,
     },
     {

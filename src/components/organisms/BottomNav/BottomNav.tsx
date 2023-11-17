@@ -30,7 +30,7 @@ const BottomNav = () => {
                             navigate(Route.LOCATION)
                             break
                         case 2:
-                            navigate(Route.FAVORITES)
+                            navigate(Route.DESCRIPTION)
                             break
                         case 3:
                             navigate(Route.ACCOUNT)
@@ -40,7 +40,7 @@ const BottomNav = () => {
             >
                 <BottomNavigationAction label="Home" icon={<HomeIcon />} />
                 <BottomNavigationAction label="Location" icon={<PersonIcon />} />
-                <BottomNavigationAction label="Favorites" icon={<FavoriteIcon />}/>
+                <BottomNavigationAction label="Descriptionyy" icon={<FavoriteIcon />}/>
                 <BottomNavigationAction label="Account" icon={<PersonIcon />} />
             </BottomNavigation>
         </Box>

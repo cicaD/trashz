@@ -5,35 +5,23 @@ import CustomButton from './CustomButton';
 import "./Map.css"
 import "leaflet/dist/leaflet.css"
 import L from 'leaflet';
-// import goldMarkerIcon from '../../../assets/images/marker-icon-gold.png';
-import MarkerWithPopupN from '../../molecules/MarkerWithPopupN';
-
-
+import MarkerWithPopup from '../../molecules/MarkerWithPopup';
+import mockedMarkersData from '../../../mock/markers_data.json';
 
 const Map = () => {
     const [mapCenter, setMapCenter] = useState([47.46863, 19.15359]);
     const [markerPosition, setMarkerPosition] = useState(null);
-    const previewMarkersData = [
-        {
-            lang: "47.50677284554991",
-            long: "19.118614196777347",
-            images: [0, 1, 2]
-        },
-        {
-            lang: "47.49019440742913",
-            long: "19.083938598632816",
-            images: [3, 6]
-        },
-        {
-            lang: "47.69019440742913",
-            long: "19.183938598632816",
-            images: [7, 8, 9]
-        },
-    ];
+    const [mapMarkers, setMapMarkers] = useState([]);
+
+    function getMarkers(userId) {
+        return mockedMarkersData;
+    }
 
 
     useEffect(() => {
-        //  getCurrentLocation();
+        const markers = getMarkers("User1");
+        //  alert(markers[0].lang);
+        setMapMarkers(markers);
     }, []);
 
 
@@ -61,11 +49,13 @@ const Map = () => {
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
             />
             <CustomButton className="custom-button" onTouchStart={getCurrentLocation} onClick={getCurrentLocation} text="Pick my location" />
-            <MarkerWithPopupN visible={previewMarkersData[0]} position={[previewMarkersData[0].lang, previewMarkersData[0].long]} markerIconColor="red" markerPositionCallBack={() => ""} />
-            <MarkerWithPopupN visible={previewMarkersData[1]} position={[previewMarkersData[1].lang, previewMarkersData[1].long]} markerIconColor="red" markerPositionCallBack={() => ""} />
-            <MarkerWithPopupN visible={markerPosition} position={markerPosition} markerIconColor="blue" markerPositionCallBack={setMarkerPosition} />
+// Reading allready saved markers in DB
+            {mapMarkers.map((item) => (
+                <MarkerWithPopup visible={item} position={[item.lang, item.long]} popupImages={item.images} markerIconColor="red" markerPositionCallBack={() => ""} />
+            ))}
+// Handling positioning of current marker
+            <MarkerWithPopup visible={markerPosition} position={markerPosition} markerIconColor="blue" markerPositionCallBack={setMarkerPosition} />
         </MapContainer>
-
     );
 };
 
