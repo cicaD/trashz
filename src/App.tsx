@@ -3,8 +3,8 @@ import {Outlet, useLocation, useNavigate} from 'react-router-dom'
 import {CssBaseline, ThemeProvider} from '@mui/material'
 
 import theme from './themes/mui'
-import Navbar from './components/organisms/Navbar/Navbar'
-import BottomNav from './components/organisms/BottomNav/BottomNav'
+import Navbar from './components/Navigation/Navbar'
+import BottomNav from './components/Navigation/BottomNav'
 import {Route} from './router'
 
 import './App.css'

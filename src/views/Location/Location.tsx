@@ -1,6 +1,5 @@
-import {Box, Typography} from '@mui/material'
-import mockData from '../../mock/mock-data.json'
-import Map from '../../components/organisms/Map/Map'
+import {Box} from '@mui/material'
+import Map from '../../components/Map/Map'
 
 const Location = () => {
     return (

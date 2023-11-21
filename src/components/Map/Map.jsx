@@ -1,17 +1,20 @@
 "use client"
 import React, { useState, useEffect } from 'react';
 import { MapContainer, TileLayer, Marker, Popup, useMapEvents } from 'react-leaflet';
-import CustomButton from './CustomButton';
+import CustomButton from '../Buttons/CustomButton';
+import UniversalButton from '../Buttons/UniversalButton';
+import LinkButton from '../Buttons/LinkButton';
 import "./Map.css"
 import "leaflet/dist/leaflet.css"
 import L from 'leaflet';
-import MarkerWithPopup from '../../molecules/MarkerWithPopup';
-import mockedMarkersData from '../../../mock/markers_data.json';
+import MarkerWithPopup from './MarkerWithPopup';
+import mockedMarkersData from '../../mock/markers_data.json';
 
 const Map = () => {
     const [mapCenter, setMapCenter] = useState([47.46863, 19.15359]);
     const [markerPosition, setMarkerPosition] = useState(null);
     const [mapMarkers, setMapMarkers] = useState([]);
+
 
     function getMarkers(userId) {
         return mockedMarkersData;
@@ -49,6 +52,9 @@ const Map = () => {
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
             />
             <CustomButton className="custom-button" onTouchStart={getCurrentLocation} onClick={getCurrentLocation} text="Pick my location" />
+            <UniversalButton className="custom-button" onTouchStart={getCurrentLocation} onClick={() => { alert('Universal Button clicked') }} label="Pick my location 2" />
+            <LinkButton className="custom-button" onTouchStart={getCurrentLocation} onClick={() => { alert('Universal Button clicked') }} label="Pick my location 3" />
+
 // Reading allready saved markers in DB
             {mapMarkers.map((item) => (
                 <MarkerWithPopup visible={item} position={[item.lang, item.long]} popupImages={item.images} markerIconColor="red" markerPositionCallBack={() => ""} />

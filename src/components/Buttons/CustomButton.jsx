@@ -1,4 +1,3 @@
-import React from 'react';
 
 const MapButton = ({ onClick, onTouchStart, text }) => {
     return (

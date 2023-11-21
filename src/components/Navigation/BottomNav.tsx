@@ -7,7 +7,7 @@ import PersonIcon from '@mui/icons-material/Person'
 import {useState} from 'react'
 import {useNavigate} from 'react-router-dom'
 
-import {Route} from '../../../router'
+import {Route} from '../../router'
 
 import styles from './BottomNav.module.css'
 
@@ -29,18 +29,30 @@ const BottomNav = () => {
                         case 1:
                             navigate(Route.LOCATION)
                             break
-                        case 2:
-                            navigate(Route.DESCRIPTION)
+                    /*    case 2:
+                            navigate(Route.IMAGES)
                             break
                         case 3:
-                            navigate(Route.ACCOUNT)
+                            navigate(Route.DESCRIPTION)
                             break
+                        case 4:
+                            navigate(Route.RECIPIENT)
+                            break
+                        case 5:
+                            navigate(Route.SEND)
+                            break
+                        case 6:
+                            navigate(Route.ACCOUNT)
+                            break */
                     }
                 }}
             >
                 <BottomNavigationAction label="Home" icon={<HomeIcon />} />
                 <BottomNavigationAction label="Location" icon={<PersonIcon />} />
-                <BottomNavigationAction label="Descriptionyy" icon={<FavoriteIcon />}/>
+                <BottomNavigationAction label="Images" icon={<FavoriteIcon />}/>
+                <BottomNavigationAction label="Description" icon={<FavoriteIcon />}/>
+                <BottomNavigationAction label="Recipient" icon={<FavoriteIcon />}/>
+                <BottomNavigationAction label="Send" icon={<FavoriteIcon />}/>
                 <BottomNavigationAction label="Account" icon={<PersonIcon />} />
             </BottomNavigation>
         </Box>

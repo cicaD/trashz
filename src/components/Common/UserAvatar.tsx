@@ -6,7 +6,7 @@ import Avatar from '@mui/material/Avatar'
 import Tooltip from '@mui/material/Tooltip'
 import MenuItem from '@mui/material/MenuItem'
 
-import AvatarProps from '../../../types/AvatarProps'
+import AvatarProps from '../../types/AvatarProps'
 
 const UserAvatar = (props: AvatarProps) => {
     const {

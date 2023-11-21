@@ -3,6 +3,7 @@ import { Marker, Popup, useMapEvents } from 'react-leaflet';
 import L from 'leaflet';
 
 const getMarkerIcon = (color) => {
+
     const markerIcon = require('../../assets/images/marker-icon-' + color + '.png');
     return L.icon({
         iconUrl: markerIcon,

@@ -5,6 +5,7 @@ import Home from '../views/Home/Home'
 import NotFound from '../views/NotFound/NotFound'
 import Location from '../views/Location/Location'
 import DescriptionPage from '../views/Description/DescriptionPage'
+import CameraPage from '../views/Images/CameraPage'
 
 enum Route {
     ROOT = '/',
@@ -14,6 +15,7 @@ enum Route {
     IMAGES = '/images',
     DESCRIPTION = '/description',
     RECIPIENT = '/recipient',
+    SEND = '/send',
     ACCOUNT = '/account',
     NOTFOUND = '*',
 }
@@ -28,8 +30,24 @@ const publicRoutes = [
         element: <Location />,
     },
     {
-        path: Route.IMAGES,
+        path: Route.NOTFOUND,
+        element: <NotFound />,
+    },
+]
+
+
+const publicRoutesOLD = [
+    {
+        path: Route.HOME,
+        element: <Home />,
+    },
+    {
+        path: Route.LOCATION,
         element: <Location />,
+    },
+    {
+        path: Route.IMAGES,
+        element: <CameraPage />,
     },
     {
         path: Route.DESCRIPTION,
@@ -37,7 +55,11 @@ const publicRoutes = [
     },
     {
         path: Route.RECIPIENT,
-        element: <Location />,
+        element: <NotFound />,
+    },
+    {
+        path: Route.SEND,
+        element: <NotFound />,
     },
     {
         path: Route.NOTFOUND,

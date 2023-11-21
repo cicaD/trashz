@@ -7,9 +7,9 @@ import Typography from '@mui/material/Typography'
 import Container from '@mui/material/Container'
 import RocketLaunchIcon from '@mui/icons-material/RocketLaunch'
 
-import {Route} from '../../../router'
-import userAvatarImage from '../../../assets/images/user.png'
-import UserAvatar from '../../molecules/UserAvatar/UserAvatar'
+import {Route} from '../../router'
+import userAvatarImage from '../../assets/images/user.png'
+import UserAvatar from '../Common/UserAvatar'
 
 import styles from './Navbar.module.css'
 
