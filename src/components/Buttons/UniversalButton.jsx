@@ -7,6 +7,7 @@ const UniversalButton = ({ label, onClick }) => {
         onClick();
         // Your click event logic here
         console.log('Button clicked!');
+        event.stopPropagation();
 
     };
 

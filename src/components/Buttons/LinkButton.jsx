@@ -1,10 +1,11 @@
 import React from 'react';
 
 const LinkButton = ({ label, onClick }) => {
-    const handleClick = () => {
+    const handleClick = (event) => {
         onClick();
         // Your script execution logic here
         console.log('Button clicked! Script executed.');
+        event.stopPropagation();
     };
 
     return (
