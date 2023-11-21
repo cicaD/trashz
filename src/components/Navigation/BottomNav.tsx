@@ -29,7 +29,7 @@ const BottomNav = () => {
                         case 1:
                             navigate(Route.LOCATION)
                             break
-                    /*    case 2:
+                        case 2:
                             navigate(Route.IMAGES)
                             break
                         case 3:
@@ -43,17 +43,17 @@ const BottomNav = () => {
                             break
                         case 6:
                             navigate(Route.ACCOUNT)
-                            break */
+                            break 
                     }
                 }}
             >
                 <BottomNavigationAction label="Home" icon={<HomeIcon />} />
                 <BottomNavigationAction label="Location" icon={<PersonIcon />} />
-                <BottomNavigationAction label="Images" icon={<FavoriteIcon />}/>
+               {/** <BottomNavigationAction label="Images" icon={<FavoriteIcon />}/>
                 <BottomNavigationAction label="Description" icon={<FavoriteIcon />}/>
                 <BottomNavigationAction label="Recipient" icon={<FavoriteIcon />}/>
                 <BottomNavigationAction label="Send" icon={<FavoriteIcon />}/>
-                <BottomNavigationAction label="Account" icon={<PersonIcon />} />
+            <BottomNavigationAction label="Account" icon={<PersonIcon />} /> **/}
             </BottomNavigation>
         </Box>
     )

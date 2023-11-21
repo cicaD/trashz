@@ -1,5 +1,5 @@
 import {Box, Typography} from '@mui/material'
-import mockData from '../../mock/mock-data.json'
+import mockData from '../../mockups/mock-data.json'
 
 const Home = () => {
     return (

@@ -8,7 +8,8 @@ import "./Map.css"
 import "leaflet/dist/leaflet.css"
 import L from 'leaflet';
 import MarkerWithPopup from './MarkerWithPopup';
-import mockedMarkersData from '../../mock/markers_data.json';
+import mockedMarkersData from '../../mockups/markers_data.json';
+import '../../'
 
 const Map = () => {
     const [mapCenter, setMapCenter] = useState([47.46863, 19.15359]);
