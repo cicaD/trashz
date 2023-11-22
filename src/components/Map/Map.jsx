@@ -49,7 +49,13 @@ const Map = () => {
                 attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
             />
-
+            <div style={{
+                backgroundColor: 'blue',
+                width: '100px',
+                height: '100px',
+                zIndex: 10000
+            }}
+                role='button' className="universalButton" width="100px" height="100px" color='blue' onClick={getCurrentLocation}> Button </div>
             <UniversalButton onTouchStart={getCurrentLocation} onClick={getCurrentLocation} text="Pick my location" />
 
 // Reading allready saved markers in DB
