@@ -1,15 +1,12 @@
 "use client"
 import React, { useState, useEffect } from 'react';
 import { MapContainer, TileLayer, Marker, Popup, useMapEvents } from 'react-leaflet';
-import CustomButton from '../Buttons/CustomButton';
 import UniversalButton from '../Buttons/UniversalButton';
-import LinkButton from '../Buttons/LinkButton';
 import "./Map.css"
 import "leaflet/dist/leaflet.css"
 import L from 'leaflet';
 import MarkerWithPopup from './MarkerWithPopup';
 import mockedMarkersData from '../../mockups/markers_data.json';
-import '../../'
 
 const Map = () => {
     const [mapCenter, setMapCenter] = useState([47.46863, 19.15359]);
@@ -52,9 +49,8 @@ const Map = () => {
                 attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
             />
-            <CustomButton className="custom-button" onTouchStart={getCurrentLocation} onClick={getCurrentLocation} text="Pick my location" />
-            <UniversalButton className="custom-button" onTouchStart={getCurrentLocation} onClick={() => { alert('Universal Button clicked') }} label="Pick my location 2" />
-            <LinkButton className="custom-button" onTouchStart={getCurrentLocation} onClick={() => { alert('Universal Button clicked') }} label="Pick my location 3" />
+
+            <UniversalButton onTouchStart={getCurrentLocation} onClick={getCurrentLocation} text="Pick my location" />
 
 // Reading allready saved markers in DB
             {mapMarkers.map((item) => (

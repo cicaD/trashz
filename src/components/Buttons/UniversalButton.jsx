@@ -3,8 +3,9 @@ import './UniversalButton.css';
 const UniversalButton = ({ label, onClick }) => {
 
     const handleClick = (event) => {
-        event.stopPropagation();
-        event.preventDefault(); // Prevent default behavior on touch events
+
+        event.preventDefault();
+        event.stopPropagation();// Prevent default behavior on touch events
         onClick();
         // Your click event logic here
         console.log('Button clicked!');
@@ -13,7 +14,7 @@ const UniversalButton = ({ label, onClick }) => {
     };
 
     return (
-        <button className="universalButton" onClick={handleClick} onTouchStart={handleClick}>
+        <button className="universalButton custom-button" onClick={handleClick} onTouchStart={handleClick}>
             {label}
         </button>
     );
