@@ -55,7 +55,7 @@ const Navbar = () => {
                                 textDecoration: 'none',
                             }}
                         >
-                            MY-APP
+                            MY-APP 0.1.2
                         </Typography>
                     </Box>
 
